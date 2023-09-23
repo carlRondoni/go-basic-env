@@ -4,6 +4,7 @@ This is tiny repo for a work env for golang projects and create the binaries.
 
 thanks to: https://www.docker.com/blog/containerize-your-go-developer-environment-part-1/
 and: https://www.docker.com/blog/containerize-your-go-developer-environment-part-2/
+and: https://www.docker.com/blog/containerize-your-go-developer-environment-part-3/
 
 NOTE: I know the repo is there but wanted to read en try on my own to learn deeper this env and a smaller one for quick compiler
 
