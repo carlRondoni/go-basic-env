@@ -1,13 +1,15 @@
-FROM golang:1.20-alpine AS build
-
+FROM golang:1.20-alpine AS base
 WORKDIR /src
-
+ENV CGO_ENABLED=0
 COPY ./src .
-
 RUN go mod download
 
-RUN go build -o /out/example .
+FROM base AS build
+RUN go build -o /out/compiled .
+
+FROM base AS unit-test
+RUN go get github.com/stretchr/testify/require
+RUN go test -v .
 
 FROM scratch AS bin
-
-COPY --from=build /out/example /
+COPY --from=build /out/compiled /
