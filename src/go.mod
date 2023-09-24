@@ -1,4 +1,4 @@
-module example.com/m
+module go-build-env
 
 go 1.20
 
