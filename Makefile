@@ -1,9 +1,11 @@
+COMPILED_FILE_NAME = "compiled"
+
 # local
 run:
-	go run .
+	go run ./cmd/main
 
 build:
-	go build .
+	go build -o ./${COMPILED_FILE_NAME} ./cmd/main
 
 test:
 	go test ./...
