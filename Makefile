@@ -1,11 +1,9 @@
-COMPILED_FILE_NAME = "compiled"
-
 # local
 run:
 	go run ./cmd/main;
 
 build:
-	go build -ldflags="-s -w" -o ./${COMPILED_FILE_NAME} ./cmd/main;
+	go build -ldflags="-s -w" -o ./compiled ./cmd/main;
 
 test:
 	go test -v ./...;
