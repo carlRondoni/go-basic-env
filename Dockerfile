@@ -1,11 +1,7 @@
-# syntax=docker/dockerfile:1
-
-ARG COMPILED_FILE_NAME="compiled"
-
 # base
-FROM golang:1.22-alpine AS base
+FROM golang:1.22.0-alpine AS base
 
-WORKDIR /src
+WORKDIR /app
 
 COPY go.* ./
 RUN go mod download
@@ -14,13 +10,15 @@ COPY . .
 
 # build
 FROM base AS build
-RUN --mount=type=cache,target=/root/.cache/go-build go build -o /out/${COMPILED_FILE_NAME} ./cmd/main
+RUN --mount=type=cache,target=/root/.cache/go-build CGO_ENABLED=0 go build -o /compiled ./cmd/main
 
 # test
 FROM base AS unit-test
-RUN go get github.com/stretchr/testify/require
-RUN --mount=type=cache,target=/root/.cache/go-build go test ./... -v
+RUN --mount=type=cache,target=/root/.cache/go-build go test -v ./cmd/main
 
 # deploy
-FROM scratch AS bin
-COPY --from=build /out/${COMPILED_OUT_NAME} /
+FROM scratch
+
+WORKDIR /
+
+COPY --from=build /compiled /compiled

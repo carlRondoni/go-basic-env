@@ -2,17 +2,17 @@ COMPILED_FILE_NAME = "compiled"
 
 # local
 run:
-	go run ./cmd/main
+	go run ./cmd/main;
 
 build:
-	go build -o ./${COMPILED_FILE_NAME} ./cmd/main
+	go build -ldflags="-s -w" -o ./${COMPILED_FILE_NAME} ./cmd/main;
 
 test:
-	go test ./...
+	go test -v ./...;
 
 # docker
 docker-build:
-	docker run .
+	docker build . --tag "compiled"
 
-docker-unit-test:
-	docker build . --target unit-test
+docker-test:
+	docker build . --target unit-test --tag "compiled:test"
