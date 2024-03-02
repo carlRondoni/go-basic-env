@@ -1,6 +1,8 @@
 # base
 FROM golang:1.22.0-alpine AS base
 
+RUN adduser -S containerUser
+
 WORKDIR /app
 
 COPY go.* ./
@@ -18,6 +20,8 @@ RUN --mount=type=cache,target=/root/.cache/go-build go test -v ./cmd/main
 
 # deploy
 FROM scratch
+
+USER containerUser
 
 WORKDIR /
 
