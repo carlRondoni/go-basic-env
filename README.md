@@ -2,23 +2,29 @@
 
 This is tiny repo for a work env for golang projects and create the binaries.
 
+### For `Dockerfile`
+
 thanks to: https://www.docker.com/blog/containerize-your-go-developer-environment-part-1/
+
 and: https://www.docker.com/blog/containerize-your-go-developer-environment-part-2/
+
 and: https://www.docker.com/blog/containerize-your-go-developer-environment-part-3/
 
-NOTE: I know the repo is there but wanted to read en try on my own to learn deeper this env and a smaller one for quick compiler
+### For basic  folder structure
+
+thanks to Melkey video:
+
+https://www.youtube.com/watch?v=dxPakeBsgl4&t=3s
 
 # Requirements
 
 - docker
-- go (with GOPATH defined) for go mod stuff on your local to set up dependencies
+- go 
 
-# Common comands
+Initilize the module with:
 
-This command is for compile the golang code you did inside `src/` folder:
+`go mod init {your-package-name-here}`
 
-`docker build . --target bin --output src/`
+# Comands
 
-For testing:
-
-`docker build . --target unit-test`
+Check `Makefile`
