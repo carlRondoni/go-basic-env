@@ -1,16 +1,16 @@
 # local
 run:
-	go run .
+	go run ./cmd/main;
 
 build:
-	go build .
+	go build -ldflags="-s -w" -o ./compiled ./cmd/main;
 
 test:
-	go test ./...
+	go test -v ./...;
 
 # docker
 docker-build:
-	docker run .
+	docker build . --tag "compiled"
 
-docker-unit-test:
-	docker build . --target unit-test
+docker-test:
+	docker build . --target unit-test --tag "compiled:test"
