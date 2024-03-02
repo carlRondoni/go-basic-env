@@ -18,6 +18,10 @@ thanks to Melkey video:
 
 https://www.youtube.com/watch?v=dxPakeBsgl4&t=3s
 
+### For build and non-root user
+
+https://snyk.io/blog/containerizing-go-applications-with-docker/
+
 # Requirements
 
 - docker
