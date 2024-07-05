@@ -30,7 +30,7 @@ https://snyk.io/blog/containerizing-go-applications-with-docker/
 
 Initilize the module with:
 
-`go mod init {your-package-name-here}`
+`go mod init {your-repo-url-here}`
 
 # Comands:
 

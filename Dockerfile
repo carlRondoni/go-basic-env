@@ -1,5 +1,5 @@
 # base
-FROM golang:1.22.0-alpine AS base
+FROM golang:1.22.5-alpine AS base
 
 RUN adduser -S containerUser
 
