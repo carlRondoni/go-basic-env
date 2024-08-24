@@ -11,6 +11,3 @@ test:
 # docker
 docker-build:
 	docker build . --tag "compiled"
-
-docker-test:
-	docker build . --target unit-test --tag "compiled:test"
