@@ -1,37 +1,72 @@
-# go-build-env
+# Go Basic Environment
 
-This is tiny repo for a work env for golang projects and create the binaries.
+This repository provides a clean and organized starter structure for building scalable Go applications.  
+It aims to speed up project setup by following Go community best practices.
 
-### For `Dockerfile`
-
-https://www.docker.com/blog/containerize-your-go-developer-environment-part-1/
-
-https://www.docker.com/blog/containerize-your-go-developer-environment-part-2/
-
-https://www.docker.com/blog/containerize-your-go-developer-environment-part-3/
-
-NOTE: I saw is outdated because the experimental syntax for docker doesnt exist anymore, now installing the buildx package on your system does everything.
-
-### For basic folder structure
-
-thanks to Melkey video:
-
-https://www.youtube.com/watch?v=dxPakeBsgl4&t=3s
-
-### For build and non-root user
-
-https://snyk.io/blog/containerizing-go-applications-with-docker/
-
-# Requirements
+## Requirements
 
 - docker
-- docker buildx
 - go
+- make
 
-Initilize the module with:
+## Features
 
-`go mod init {your-repo-url-here}`
+- Organized into `cmd`, `internal`, `pkg`, and `tests` directories.
+- Clean and minimal baseline for Go development.
 
-# Comands:
+## Project Structure
 
-Check `Makefile`
+```text
+cmd/        # Entry points (main.go files)
+internal/   # Private application and domain code
+pkg/        # Public libraries (can be imported by other projects)
+tests/      # Integraton test Folder
+Dockerfile  # Main docker file for the compiling
+Makefile    # Common development commands
+
+# Getting Started
+
+1. Clone this repo
+
+```
+git clone https://github.com/carlRondoni/go-basic-env.git
+cd go-basic-env
+```
+
+2. Initilize the module:
+
+```
+go mod init {your-repo-url-here}
+```
+
+3. Do your go code. Check examples on cmd for main and internal for other flows.
+
+4. To compile the file:
+
+```
+make build
+make run
+```
+
+5. To run tests
+
+```
+make test
+````
+
+6. To build the image
+
+```
+make docker-build
+```
+
+# To update
+
+- [ ] make file with better commands
+- [ ] better readme
+- [ ] readme tags (go version)
+- [ ] add linter
+ 
+# License
+
+Distributed under the MIT License. See LICENSE for more information.
