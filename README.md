@@ -16,13 +16,14 @@ It aims to speed up project setup by following Go community best practices.
 
 ## Project Structure
 
-```text
+```
 cmd/        # Entry points (main.go files)
 internal/   # Private application and domain code
 pkg/        # Public libraries (can be imported by other projects)
 tests/      # Integraton test Folder
 Dockerfile  # Main docker file for the compiling
 Makefile    # Common development commands
+```
 
 # Getting Started
 
