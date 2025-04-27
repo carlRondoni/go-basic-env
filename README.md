@@ -37,18 +37,24 @@ cd go-basic-env
 
 ```
 go mod init {your-repo-url-here}
+go mod tidy
 ```
 
 3. Do your go code. Check examples on cmd for main and internal for other flows.
 
-4. To compile the file:
+4. Run the go code locally:
 
 ```
-make build
 make run
 ```
 
-5. To run tests
+4. To compile the file from the code:
+
+```
+make build
+```
+
+5. To run tests`:
 
 ```
 make test
@@ -62,8 +68,6 @@ make docker-build
 
 # To update
 
-- [ ] make file with better commands
-- [ ] better readme
 - [ ] readme tags (go version)
 - [ ] add linter
  
