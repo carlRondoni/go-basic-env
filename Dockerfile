@@ -1,6 +1,8 @@
 # base
 FROM golang:1.24-alpine AS base
 
+RUN adduser -S containerUser
+
 WORKDIR /app
 
 COPY go.* ./
@@ -10,13 +12,13 @@ COPY . .
 
 # build
 FROM base AS build
-RUN --mount=type=cache,target=/root/.cache/go-build CGO_ENABLED=0 go build -o /app/apiserver ./cmd/api
+RUN --mount=type=cache,target=/root/.cache/go-build CGO_ENABLED=0 go build -o /compiled ./cmd/main
 
 # deploy
-FROM alpine:latest AS webserver
+FROM scratch
 
-COPY --from=build /app/apiserver /apiserver
-RUN chmod +x /apiserver
+USER containerUser
 
-EXPOSE 80
-ENTRYPOINT ["/apiserver"]
+WORKDIR /
+
+COPY --from=build /compiled /compiled

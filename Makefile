@@ -1,4 +1,4 @@
-# local basics for main
+# local
 run:
 	go run ./cmd/main;
 
@@ -8,7 +8,6 @@ build:
 test:
 	go test -v ./...;
 
-# docker exposing api
-docker-build-and-run:
-	docker build -t api:latest . --tag "webserver"
-	docker run -d --name api-test api:latest
+# docker
+docker-build:
+	docker build . --tag "compiled"
