@@ -10,5 +10,5 @@ test:
 
 # docker exposing api
 docker-build-and-run:
-	docker build -t api:latest . --tag "webserver"
+	docker build -t api:latest . --tag "webapp"
 	docker run -d --name api-test api:latest
