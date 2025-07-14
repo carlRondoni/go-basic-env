@@ -7,7 +7,3 @@ build:
 
 test:
 	go test -v ./...;
-
-# docker
-docker-build:
-	docker build . --tag "compiled"
