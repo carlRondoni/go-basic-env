@@ -1,7 +1,6 @@
 # Go Basic Environment
 
-This repository provides a clean and organized starter structure for building scalable Go applications.  
-It aims to speed up project setup by following Go community best practices.
+This repository provides a clean and organized starter structure for building scalable Go applications.
 
 ## Requirements
 
@@ -11,17 +10,14 @@ It aims to speed up project setup by following Go community best practices.
 
 ## Features
 
-- Organized into `cmd`, `internal`, `pkg`, and `tests` directories.
+- Organized into `cmd` directory, as entrypoint and example for a basic hello world example.
+- Make file with basic go commands to compile.
 - Clean and minimal baseline for Go development.
 
 ## Project Structure
 
 ```
-cmd/        # Entry points (main.go files)
-internal/   # Private application and domain code
-pkg/        # Public libraries (can be imported by other projects)
-tests/      # Integraton test Folder
-Dockerfile  # Main docker file for the compiling
+cmd/main    # Entry point as a basic program
 Makefile    # Common development commands
 ```
 
@@ -37,11 +33,11 @@ cd go-basic-env
 2. Initilize the module:
 
 ```
-go mod init {your-repo-url-here}
+go mod init {your-project-here}
 go mod tidy
 ```
 
-3. Do your go code. Check examples on cmd for main and internal for other flows.
+3. Do your go code. Check example on `cmd/main`.
 
 4. Run the go code locally:
 
@@ -49,28 +45,22 @@ go mod tidy
 make run
 ```
 
-4. To compile the file from the code:
+5. For compile the file from the code:
 
 ```
 make build
 ```
 
-5. To run tests`:
+6. To run tests`:
 
 ```
 make test
 ````
 
-6. To build the image
+# Next Steps
 
-```
-make docker-build
-```
-
-# To update
-
-- [ ] readme tags (go version)
-- [ ] add linter
+- [ ] cmd/api as n example with dockerfile for a webserver
+- [ ] cmd/command as an example for cli code
  
 # License
 
