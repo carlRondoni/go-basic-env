@@ -7,15 +7,12 @@ import (
 )
 
 func main() {
-	handleRequests()
-}
-
-func handleRequests() {
 	http.HandleFunc("/", test)
+
+	fmt.Println("Ready to handle stuff here!!")
 	log.Fatal(http.ListenAndServe(":80", nil))
 }
 
 func test(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to test api!")
-	fmt.Println("/ endpoint reached!!")
+	w.Write([]byte("OK"))
 }

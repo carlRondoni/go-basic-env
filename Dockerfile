@@ -1,21 +1,25 @@
 # base
-FROM golang:1.24-alpine AS base
+FROM golang:1.25-alpine AS base
 
 WORKDIR /app
+
 COPY go.* ./
 RUN go mod download
+
 COPY . .
 
 # build
 FROM base AS build
 
-RUN CGO_ENABLED=0 GOOS=linux go build -a installsufix cgo -o apiserver ./cmd/api
+RUN --mount=type=cache,target=/root/.cache/go-build CGO_ENABLED=0 go build o apiserver ./cmd/api
 
 # deploy
-FROM alpine:latest AS webserver
+FROM debian:trixie-slim AS webserver
 
-COPY --from=build /app/apiserver .
+WORKDIR /
+COPY --from=build /app/apiserver /apiserver
 
-FROM webserver AS webapp
-EXPOSE 80
+USER nonroot:nonroot
+EXPOSE 8080
+
 CMD ["/apiserver"]
