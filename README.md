@@ -59,7 +59,6 @@ make test
 
 # Next Steps
 
-- [ ] cmd/api as n example with dockerfile for a webserver
 - [ ] cmd/command as an example for cli code
  
 # License
