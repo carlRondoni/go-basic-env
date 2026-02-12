@@ -6,17 +6,14 @@ run:
 	go run ./cmd/main;
 
 build:
-	go build -ldflags="-s -w" -o ./compiled ./cmd/main
-	go build -ldflags="-s -w" -o ./api ./cmd/api
+	go build -o ./compiled ./cmd/main
+	go build -o ./api ./cmd/api
 
 test:
 	go test -v ./...
 
 docker-build:
-	docker build -t api .
+	docker build .
 
 docker-run:
 	docker run --rm -it -p 8080:8080 api
-
-clean:
-	rm -f apiserver
