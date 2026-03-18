@@ -26,21 +26,21 @@ Makefile    # Common development commands
 
 # Getting Started
 
-1. Clone this repo
+1. Clone this repo run:
 
 ```
 git clone {url/ssh repo}
 cd go-basic-env
 ```
 
-2. Initialize the module:
+2. Initialize the module in case you don't want to have same module name. Remove `go.mod` and `go.sum` and run:
 
 ```
 go mod init {your-project-name/url-here}
 go mod tidy
 ```
 
-3. Do your code. Check examples on `cmd/main` or `cmd/api`.
+3. Do your code. Check examples on `cmd/main` or `cmd/api` for the entrypoints and extend it to internal.
 
 4. Run the `cmd/main` locally:
 
@@ -69,7 +69,8 @@ make docker-run
 # Next Steps
 
 - [ ] logs in grafana api -> alloy -> loki -> grafana (docker compose + makefile commands)
-- [ ] cmd/command as an example for cli code
+- [ ] traces in grafana api (docker compose updates)
+- [ ] cmd/command as an example for cli code.
  
 # License
 
