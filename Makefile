@@ -13,7 +13,7 @@ test:
 	go test -v ./... -tags=unit -failfast
 
 docker-build-api:
-	docker build .
+	docker build . -t api
 
 docker-run:
-	docker run --rm -it -p 8080:8080 api
+	docker run --rm -itd -p 8080:8080 api
