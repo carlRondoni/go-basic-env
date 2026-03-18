@@ -2,64 +2,75 @@
 
 This repository provides a clean and organized starter structure for building scalable Go applications.
 
-## Requirements
+With examples for API and a simple binary, you can take them and expand as you need and adding internal app logic into internal folder (because of this is empty, depends on you mate)
+
+## Requirements on your machine
 
 - docker
-- go
+- go (>=1.26)
 - make
 
 ## Features
 
-- Organized into `cmd` directory, as entrypoint and example for a basic hello world example.
-- Make file with basic go commands to compile.
+- Organized into `cmd` directory, as entrypoint and example for a basic hello world or api.
+- Makefile with basic go commands to compile.
 - Clean and minimal baseline for Go development.
 
 ## Project Structure
 
 ```
 cmd/main    # Entry point as a basic program
+cmd/api     # Entry point as a basic api
 Makefile    # Common development commands
 ```
 
 # Getting Started
 
-1. Clone this repo
+1. Clone this repo run:
 
 ```
-git clone https://github.com/carlRondoni/go-basic-env.git
+git clone {url/ssh repo}
 cd go-basic-env
 ```
 
-2. Initilize the module:
+2. Initialize the module in case you don't want to have same module name. Remove `go.mod` and `go.sum` and run:
 
 ```
-go mod init {your-project-here}
+go mod init {your-project-name/url-here}
 go mod tidy
 ```
 
-3. Do your go code. Check example on `cmd/main`.
+3. Do your code. Check examples on `cmd/main` or `cmd/api` for the entrypoints and extend it to internal.
 
-4. Run the go code locally:
+4. Run the `cmd/main` locally:
 
 ```
-make run
+make run-main
 ```
 
-5. For compile the file from the code:
+5. To compile the binaries from the cmd:
 
 ```
 make build
 ```
 
-6. To run tests`:
+6. To run unit tests:
 
 ```
 make test
-````
+```
+
+7. To run api server:
+
+```
+make docker-run
+``` 
 
 # Next Steps
 
-- [ ] cmd/command as an example for cli code
+- [ ] logs in grafana api -> alloy -> loki -> grafana (docker compose + makefile commands)
+- [ ] traces in grafana api (docker compose updates)
+- [ ] cmd/command as an example for cli code.
  
 # License
 
