@@ -2,22 +2,25 @@
 
 This repository provides a clean and organized starter structure for building scalable Go applications.
 
-## Requirements
+With examples for API and a simple binary, you can take them and expand as you need and adding internal app logic into internal folder (because of this is empty, depends on you mate)
+
+## Requirements on your machine
 
 - docker
-- go
+- go (>=1.26)
 - make
 
 ## Features
 
-- Organized into `cmd` directory, as entrypoint and example for a basic hello world example.
-- Make file with basic go commands to compile.
+- Organized into `cmd` directory, as entrypoint and example for a basic hello world or api.
+- Makefile with basic go commands to compile.
 - Clean and minimal baseline for Go development.
 
 ## Project Structure
 
 ```
 cmd/main    # Entry point as a basic program
+cmd/api     # Entry point as a basic api
 Makefile    # Common development commands
 ```
 
@@ -26,32 +29,32 @@ Makefile    # Common development commands
 1. Clone this repo
 
 ```
-git clone https://github.com/carlRondoni/go-basic-env.git
+git clone {url/ssh repo}
 cd go-basic-env
 ```
 
-2. Initilize the module:
+2. Initialize the module:
 
 ```
-go mod init {your-project-here}
+go mod init {your-project-name/url-here}
 go mod tidy
 ```
 
-3. Do your go code. Check example on `cmd/main`.
+3. Do your code. Check examples on `cmd/main` or `cmd/api`.
 
-4. Run the go code locally:
+4. Run the `cmd/main` locally:
 
 ```
 make run
 ```
 
-5. For compile the file from the code:
+5. To compile the binaries from the cmd:
 
 ```
 make build
 ```
 
-6. To run tests`:
+6. To run unit tests:
 
 ```
 make test
@@ -59,6 +62,8 @@ make test
 
 # Next Steps
 
+- [ ] logs in grafana api -> alloy -> loki -> grafana (docker compose + makefile commands)
+- [ ] github pipeline tests
 - [ ] cmd/command as an example for cli code
  
 # License

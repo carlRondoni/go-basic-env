@@ -2,17 +2,17 @@
 SHELL := /bin/bash
 DOCKER := /usr/bin/docker
 
-run:
+run-main:
 	go run ./cmd/main;
 
 build:
-	go build -o ./compiled ./cmd/main
+	go build -o ./main ./cmd/main
 	go build -o ./api ./cmd/api
 
 test:
-	go test -v ./...
+	go test -v ./... -tags=unit -failfast
 
-docker-build:
+docker-build-api:
 	docker build .
 
 docker-run:
