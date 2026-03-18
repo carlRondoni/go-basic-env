@@ -45,7 +45,7 @@ go mod tidy
 4. Run the `cmd/main` locally:
 
 ```
-make run
+make run-main
 ```
 
 5. To compile the binaries from the cmd:
@@ -58,12 +58,17 @@ make build
 
 ```
 make test
-````
+```
+
+7. To run api server:
+
+```
+make docker-run
+``` 
 
 # Next Steps
 
 - [ ] logs in grafana api -> alloy -> loki -> grafana (docker compose + makefile commands)
-- [ ] github pipeline tests
 - [ ] cmd/command as an example for cli code
  
 # License
